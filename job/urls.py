@@ -1,8 +1,10 @@
 from . import views
 from django.urls import path , include
 
-urlpatterns = [
-    
-    path('', views.job_list),
-    path('<int:id>/', views.job_detail), 
-    ]
+app_name = 'job'
+
+urlpatterns = [  
+    path('', views.job_list, name='job_list'),
+    path('add', views.add_job, name='add_job'),
+    path('<str:slug>', views.job_detail, name='job_detail'),
+]
